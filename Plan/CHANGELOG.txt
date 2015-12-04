@@ -1,0 +1,14 @@
+CHANGELOG
+
+12/04/15 - Alex Arze
+
+ - Added BattleshipUtils
+  - Adds enumerators for different she types
+  - Adds display variables
+
+ - Board
+  - Added fillCells() for setUp()
+
+ - Ship
+  - wasHit is now properly defined as a boolean array
+  - cellsOccupied is now one dimensional
