@@ -14,16 +14,16 @@ public class Cell {
     public char getSymbol() {  //char
         return symbol;
     }
-    public void setsymbol(char s) {         //void
+    public void setSymbol(char s) {         //void
         symbol = s;
     }
-    public boolean getwasHit() {      //boolean
+    public boolean getWasHit() {      //boolean
         return wasHit;
     }
-    public void setwasHit(boolean wh) {         //void
+    public void setWasHit(boolean wh) {         //void
         wasHit = wh;
     }
-    public Ship getactiveShip() {   //Ship???
+    public Ship getActiveShip() {   //Ship???
         return activeShip;
     }
 }
