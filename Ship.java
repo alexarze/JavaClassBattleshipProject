@@ -34,14 +34,16 @@ public class Ship {
     }  
         
     public boolean isSunk() {  
-       
-          for (boolean hit : wasHit) {
-              if (hit==false) {
-                  sunk = false;
-                  break;
-              }
-          }
-        return false;  
+        boolean sunk = true;
+        
+        for (boolean hit : wasHit) {
+            if (hit==false) {
+                sunk = false;
+                break;
+            }
+        }
+
+        return sunk;  
       }  
 
 }  
