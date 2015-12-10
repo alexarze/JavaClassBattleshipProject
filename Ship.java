@@ -36,7 +36,12 @@ public class Ship {
     public boolean isSunk() {  
           isSunk = s;
           s = true;
-          
+          for (boolean hit : wasHit) {
+              if (hit==false) {
+                  sunk = false;
+                  break;
+              }
+          }
         return false;  
       }  
 
