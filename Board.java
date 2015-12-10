@@ -6,27 +6,27 @@ public class Board {
     private int numships = 0;
     
     public int getRows() {
-        return 0;
+        return rows;
     }
     
     public int getColumns() {
-        return 0;
+        return columns;
     }
     
     public Cell[][]  getCells(int i, int j) {
-        return null;
+        return cells;
     }
    
     public Ship[] getShips() {
-        return null;
+        return ships;
     }
     
-    public void addShip(Ship[] ships) {
-        
+    public void setShip(Ship[] ships) {
+        ships = s;
     }
     
     public int getNumShips() {
-        return 0;
+        return numships;
     }
     
     public void setUp() {
