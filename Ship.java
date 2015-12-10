@@ -12,10 +12,10 @@ public class Ship {
          return length;   
     }  
         
-    public boolean getWasHit() {  
-          
-        return false;  
+    public boolean[] getWasHit() {  
+        return wasHit;  
     }  
+
     public void setWasHit(boolean[] wasHit) {  
         this.wasHit = wasHit;  
     }
