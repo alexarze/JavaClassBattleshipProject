@@ -21,7 +21,7 @@ public class Board {
         return ships;
     }
     
-    public void setShip(Ship[] ships) {
+    public void setShip(Ship[]  s) {
         ships = s;
     }
     
