@@ -37,7 +37,7 @@ public class Ship {
         boolean sunk = true;
         
         for (Cell cell : cellsOccupied) {
-            if (cell.getWasHit==false) {
+            if (cell.getWasHit()==false) {
                 sunk = false;
                 break;
             }
