@@ -20,7 +20,7 @@ public class Ship {
         this.wasHit = wasHit;  
     }
     
-    public void getCellsOccupied() {
+    public Cell[] getCellsOccupied() {
         return cellsOccupied;
     }    
         
