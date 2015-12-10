@@ -11,6 +11,10 @@ public class Ship {
      public int getLength() {  
          return length;   
     }  
+    
+    public void setLength() {
+        length = 1;
+    }
         
     public boolean[] getWasHit() {  
         return wasHit;  
