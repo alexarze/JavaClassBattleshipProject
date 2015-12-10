@@ -16,7 +16,7 @@ public class Ship {
           
         return false;  
     }  
-    public void setWasHit(boolean wasHit) {  
+    public void setWasHit(boolean[] wasHit) {  
         this.wasHit = wasHit;  
     }
     
@@ -34,6 +34,8 @@ public class Ship {
     }  
         
     public boolean isSunk() {  
+          isSunk = s;
+          s = true;
           
         return false;  
       }  
