@@ -30,7 +30,17 @@ public class Board {
     }
     
     public void setUp() {
-        
+        if (rows<1) {
+            return;
+        }
+        if (columns<1) {
+            return;
+        }
+        for (int i=0; i<rows; i++) {
+            for (int j=0; j<columns; j++) {
+                cells[i][j] = new Cell();
+            }
+        }
     }
     
     public void display() {
