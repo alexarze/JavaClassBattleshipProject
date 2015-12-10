@@ -1,0 +1,42 @@
+Enter file contents herepublic class Ship {
+    private int length = 1;
+    private boolean[] wasHit;
+    private boolean isVertical;
+    private Cell[]cellsOccupied;
+
+    public int getLength() {
+       return length; 
+    }
+    
+    public int getType() {
+       return type; 
+    }
+    
+    public boolean getWasHit() {
+        
+    }
+    public void setWasHit(boolean wasHit) {
+        this.wasHit = wasHit;
+    }
+    
+    public Ship(int length, int type, boolean isVertical) {
+        
+    }
+    
+    public boolean getIsVertical() {
+        
+    }
+    
+    public void setIsVertical(boolean isVertical) {
+        this.isVertical = isVertical;
+    }
+    
+    public int getCellsOccupied[] {
+        return cellsOccupied;
+    }
+    
+    public boolean isSunk() {
+        
+    }
+    
+}
