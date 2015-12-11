@@ -13,7 +13,16 @@ public class Ship {
     }  
     
     public void setLength() {
-        length = 1;
+        this.length = length;
+    }
+    
+    public int type;
+    public int getType() {
+        return type;
+    }
+    
+    public int setType(int type) {
+        this.type = type;
     }
         
     public boolean[] getWasHit() {  
