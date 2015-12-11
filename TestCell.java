@@ -3,7 +3,7 @@ public class TestCell {
         Ship testShip = null;
     }
     public void setActiveShip() {
-        Ship testShip = new Ship(1,1,false);
+        Ship testShip = new Ship(BattleshipUtils.ShipSpecs.PATROL_BOAT,false);
     }
     public void setsymbolToInvalid() {
         Cell symbol = null;

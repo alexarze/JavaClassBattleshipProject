@@ -3,6 +3,7 @@ public class Ship {
     private boolean[] wasHit;
     private boolean isVertical;  
     private Cell[]cellsOccupied;  
+    public int type = 0;
     
     public Ship(BattleshipUtils.ShipSpecs specs, boolean isVertical) {  
          
@@ -12,7 +13,6 @@ public class Ship {
          return specs.length;   
     }  
     
-    public int type = null;
     public int getType() {
         return type;
     }
