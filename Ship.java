@@ -2,11 +2,12 @@ public class Ship {
     private BattleshipUtils.ShipSpecs specs = null;
     private boolean[] wasHit;
     private boolean isVertical;  
-    private Cell[]cellsOccupied;  
+    private Cell[] cellsOccupied;  
     public int type = 0;
     
     public Ship(BattleshipUtils.ShipSpecs specs, boolean isVertical) {  
-         
+        this.specs = specs;
+        this.isVertical = isVertical;
     }  
       
      public int getLength() {  
@@ -23,6 +24,10 @@ public class Ship {
 
     public void setWasHit(boolean[] wasHit) {  
         this.wasHit = wasHit;  
+    }
+    
+    public void setCellsOccupied(Cell[] cells) {
+        this.cellsOccupied = cells;
     }
     
     public Cell[] getCellsOccupied() {
