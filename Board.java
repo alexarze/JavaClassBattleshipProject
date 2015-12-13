@@ -1,9 +1,26 @@
+import java.util.*;
+
 public class Board {
     private int rows = 0;
     private int columns = 0;
     private Cell[][] cells;
     private Ship[] ships;
-    private int numships = 0;
+    private int numShips = 0;
+    
+    public Board(BattleshipUtils.BoardSpecs specs){
+        this.rows = specs.rows;
+        this.columns = specs.cols;
+        this.numShips = specs.numShips;
+        this.cells = new Cell[rows][columns];
+        this.ships = new Ship[this.numShips];
+        
+        System.out.println(this.rows);
+        System.out.println(this.columns);
+        System.out.println(this.numShips);
+        
+        
+        this.setUp();
+    }
     
     public int getRows() {
         return rows;
@@ -13,8 +30,8 @@ public class Board {
         return columns;
     }
     
-    public Cell[][]  getCells(int i, int j) {
-        return cells;
+    public Cell  getCell(int i, int j) {
+        return cells[i][j];
     }
    
     public Ship[] getShips() {
@@ -26,7 +43,7 @@ public class Board {
     }
     
     public int getNumShips() {
-        return numships;
+        return numShips;
     }
     
     public void setUp() {
@@ -47,7 +64,71 @@ public class Board {
         
     }
     
-    public void placeShips() {
+    /*
+     * Will need to add support for verticle ship placement.
+     * Current version simply adds random ship per line.
+     * May implement ArrayList to determine which cell combinations have been suggested already.
+     */
+    public void placeShips(ArrayList<Ship> shipsArray) {
+        Random random = new Random();
+        int i = 0;
+        int j = 0;
+        int rowGuess = 0;
+        int colGuess = 0;
+        boolean foundRow = false;
+        boolean foundCol = false;
+        
+        // find a space for each space
+        for (i = 0; i < shipsArray.size(); i++){
+            // reset
+            foundRow = false;
+            rowGuess = 0;
+            colGuess = 0;
+            
+            // debug
+            System.out.println("Ship " + i + ":");
+            // get a row with no ship
+            while (foundRow == false){
+                rowGuess = random.nextInt(this.getRows());
+                
+                // debug
+                System.out.println("Row Guess: " + rowGuess);
+                
+                for (j = 0; j < this.getColumns(); j++){
+                    // if there is a ship in a cell on the row
+                    if (this.getCell(rowGuess, j).getHasShip() == true){
+                        // debug
+                        System.out.println("Row had ship");
+                        
+                        break;
+                    }
+                    // if there has been no ship on the row, found row
+                    if (j == this.getColumns() - 1){
+                        foundRow = true;
+                    }
+                }
+            }
+            
+            // get a valid column
+            colGuess = random.nextInt(this.getColumns() - shipsArray.get(i).getLength());
+            
+            // debug
+            System.out.println("Column Guess: " + colGuess);
+            
+            // assign ship to cells and save assigned cells
+            Cell[] cellsOccupied = new Cell[shipsArray.get(i).getLength()];
+            for (j = 0; j < shipsArray.get(i).getLength(); j++){
+                this.getCell(rowGuess, colGuess + j).setHasShip(true);
+                this.getCell(rowGuess, colGuess + j).setActiveShip(shipsArray.get(i));
+                cellsOccupied[j] = this.getCell(rowGuess, colGuess + j);
+            }
+            
+            // assign ship in list of ships
+            this.ships[i] = shipsArray.get(i);
+            
+            // assign cells to ship
+            shipsArray.get(i).setCellsOccupied(cellsOccupied);
+        }
         
     }
 }
