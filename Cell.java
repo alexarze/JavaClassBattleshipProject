@@ -47,6 +47,10 @@ public class Cell {
         return wasGuessed;
     }
     
+    public void setActiveShip(Ship ship) {
+        this.activeShip = ship;
+    }
+    
     public Ship getActiveShip() {   //Ship???
         return activeShip;
     }
