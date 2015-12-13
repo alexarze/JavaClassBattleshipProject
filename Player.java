@@ -3,6 +3,10 @@ public class Player {
     private String name = null;
     private int numOfGuesses = 0;
     private int numOfHits = 0;
+    
+    public Player(String name){
+        this.name = name;
+    }
 
     public String getName() {
         return name;
