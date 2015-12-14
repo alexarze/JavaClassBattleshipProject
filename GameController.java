@@ -13,6 +13,7 @@ public class GameController{
     }
     
     public void startGame(){
+        this.printWelcome();
         int i = 0;
         
         // create Player
@@ -33,9 +34,39 @@ public class GameController{
         
         theBoard.placeShips(shipsArray);
         theBoard.display();
+        this.playGame();
     }
     
+    protected void playGame() {
+        boolean playing = true;
+        while (playing) {
+            System.out.println("What's your guess (row col)?");
+            String guess = userInput.nextLine();
+            String delims = "[ ]";
+            String[] guessTokens = guess.split(delims);
+            if (guessTokens.length == 2) {
+                this.makeGuess(Integer.parseInt(guessTokens[0]), Integer.parseInt(guessTokens[1]));
+            }
+            else if (guessTokens.length == 1 && guess.equalsIgnoreCase("quit")) {
+                playing = false;
+            }
+            else {
+                System.out.println("I don't understand.  Please make a guess like this: 3 1");
+            }
+        }
+    }
+    
+    private void printWelcome() {
+        System.out.println("Welcome to Battleship!");
+        System.out.println("You can quit at any time by typing quit.");
+    }
+    
+    private void makeGuess(int row, int col) {
+        System.out.println("Making row guess: " + row);
+        System.out.println("Making col guess: " + col);
+    }
 }
+
 
 /* To Start Game:
  *  - Create Player
