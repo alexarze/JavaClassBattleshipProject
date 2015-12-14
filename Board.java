@@ -61,12 +61,25 @@ public class Board {
     }
     
     public void display() {
+        printColumnHeaders();
+        int rowNum = 0;
         for (Cell[] row : cells) {
+            System.out.print(rowNum);
             for (Cell cell : row) {
-                System.out.print(cell.getSymbol());
+                System.out.print(" " + cell.getSymbol());
             }
             System.out.println();
+            rowNum++;
         }
+    }
+    
+    private void printColumnHeaders() {
+        //We need to lead with a blank space so that we make room for the row headers.
+        System.out.print(" ");
+        for (int i=0; i<columns; i++) {
+            System.out.print(" " + i);
+        }
+        System.out.println();
     }
     
     /*
