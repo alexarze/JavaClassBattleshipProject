@@ -32,6 +32,7 @@ public class GameController{
         shipsArray.add(new Ship(BattleshipUtils.ShipSpecs.PATROL_BOAT, false));
         
         theBoard.placeShips(shipsArray);
+        theBoard.display();
     }
     
 }

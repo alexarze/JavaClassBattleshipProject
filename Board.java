@@ -61,7 +61,12 @@ public class Board {
     }
     
     public void display() {
-        
+        for (Cell[] row : cells) {
+            for (Cell cell : row) {
+                System.out.print(cell.getSymbol());
+            }
+            System.out.println();
+        }
     }
     
     /*
