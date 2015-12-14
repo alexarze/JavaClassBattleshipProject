@@ -40,11 +40,22 @@ public class GameController{
     protected void playGame() {
         boolean playing = true;
         while (playing) {
-            System.out.println("What's your guess (row col)?");
-            String guess = userInput.nextLine();
+            boolean isNumeric = true;
             String delims = "[ ]";
             String[] guessTokens = guess.split(delims);
-            if (guessTokens.length == 2) {
+            
+            // ask for guess
+            System.out.println("What's your guess (row col)?");
+            String guess = userInput.nextLine();
+            
+            // check if guesses are numeric
+            for (String str:guessTokens) {
+                if (isNumeric(str) == false) {
+                    isNumeric = false;
+                }
+            }
+            
+            if (guessTokens.length == 2 && isNumeric == true) {
                 this.makeGuess(Integer.parseInt(guessTokens[0]), Integer.parseInt(guessTokens[1]));
             }
             else if (guessTokens.length == 1 && guess.equalsIgnoreCase("quit")) {
@@ -64,6 +75,13 @@ public class GameController{
     private void makeGuess(int row, int col) {
         System.out.println("Making row guess: " + row);
         System.out.println("Making col guess: " + col);
+        
+        // add a player guess
+        this.thePlayer.addGuess();
+    }
+    
+    private void isNumeric(String str){
+        return str.matches("-?\\d+(\\.\\d+)?");
     }
 }
 
