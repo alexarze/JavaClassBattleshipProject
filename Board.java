@@ -30,8 +30,12 @@ public class Board {
         return columns;
     }
     
-    public Cell  getCell(int i, int j) {
-        return cells[i][j];
+    public Cell getCell(int i, int j) {
+        if (i >= 0 && j >= 0) {
+            return cells[i][j];
+        } else {
+            return null;
+        }
     }
    
     public Ship[] getShips() {
@@ -91,17 +95,14 @@ public class Board {
         Random random = new Random();
         int i = 0;
         int j = 0;
-        int rowGuess = 0;
-        int colGuess = 0;
-        boolean foundRow = false;
         boolean foundCol = false;
         
         // find a space for each space
         for (i = 0; i < shipsArray.size(); i++){
             // reset
-            foundRow = false;
-            rowGuess = 0;
-            colGuess = 0;
+            boolean foundRow = false;
+            int rowGuess = 0;
+            int colGuess = 0;
             
             // debug
             System.out.println("Ship " + i + ":");

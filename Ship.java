@@ -2,8 +2,7 @@ public class Ship {
     private BattleshipUtils.ShipSpecs specs = null;
     private boolean[] wasHit;
     private boolean isVertical;  
-    private Cell[] cellsOccupied;  
-    public int type = 0;
+    private Cell[] cellsOccupied;
     
     public Ship(BattleshipUtils.ShipSpecs specs, boolean isVertical) {  
         this.specs = specs;
@@ -12,10 +11,6 @@ public class Ship {
       
      public int getLength() {  
          return specs.length;   
-    }  
-    
-    public int getType() {
-        return type;
     }
         
     public boolean[] getWasHit() {  
@@ -41,8 +36,8 @@ public class Ship {
       
     public void setIsVertical(boolean isVertical) {
         this.isVertical =isVertical;
-    }  
-        
+    }
+    
     public boolean isSunk() {  
         boolean sunk = true;
         

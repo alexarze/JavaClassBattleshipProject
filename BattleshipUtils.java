@@ -6,7 +6,7 @@ public class BattleshipUtils {
     // These are varaibles that are used to display the board.
     public static char DISPLAY_HIT = 'X';
     public static char DISPLAY_MISS = '_';
-    public static char DISPLAY_UNGUESSED = 'O';
+    public static char DISPLAY_UNGUESSED = '0';
     
     /*
      * This is an enumerator obect that defines the types of valid ships
