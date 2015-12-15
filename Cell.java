@@ -54,4 +54,22 @@ public class Cell {
     public Ship getActiveShip() {   //Ship???
         return activeShip;
     }
+    
+    public void guess(){
+        this.wasGuessed = true;
+        
+        // was hit if there is a ship
+        if (hasShip == true) {
+            this.wasHit = true;
+        }
+    }
+    
+    public void checkStatus(){
+        // check if active ship is sunk
+        if (activeShip != null) {
+            if (activeShip.isSunk() == true) {
+                System.out.println("You sunk the ship!");
+            }
+        }
+    }
 }

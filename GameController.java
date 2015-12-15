@@ -41,12 +41,13 @@ public class GameController{
         boolean playing = true;
         while (playing) {
             boolean isNumeric = true;
-            String delims = "[ ]";
-            String[] guessTokens = guess.split(delims);
             
             // ask for guess
             System.out.println("What's your guess (row col)?");
+            
             String guess = userInput.nextLine();
+            String delims = "[ ]";
+            String[] guessTokens = guess.split(delims);
             
             // check if guesses are numeric
             for (String str:guessTokens) {
@@ -76,11 +77,31 @@ public class GameController{
         System.out.println("Making row guess: " + row);
         System.out.println("Making col guess: " + col);
         
-        // add a player guess
-        this.thePlayer.addGuess();
+        // make sure row and col are within range
+        if (row < 0 || row > theBoard.getRows() || col < 0 || col > theBoard.getColumns()) {
+            System.out.println("That was an invalid guess!");
+            return;
+        }
+        
+        // if wasn't already guessed
+        if (theBoard.getCell(row, col).getWasGuessed() == false) {
+            // hit cell
+            theBoard.getCell(row, col).guess();
+            
+            // display board again
+            theBoard.display();
+            
+            // check cell status
+            theBoard.getCell(row, col).checkStatus();
+            
+            // add a player guess
+            this.thePlayer.addGuess();
+        } else {
+            System.out.println("You already guessed that cell!");
+        }
     }
     
-    private void isNumeric(String str){
+    private boolean isNumeric(String str){
         return str.matches("-?\\d+(\\.\\d+)?");
     }
 }
